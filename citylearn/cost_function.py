@@ -34,6 +34,7 @@ class CostFunction:
         """
 
         data = pd.DataFrame({'net_electricity_consumption':net_electricity_consumption})
+        print(data.describe())
         data['ramping'] = data['net_electricity_consumption'] - data['net_electricity_consumption'].shift(1)
         data['ramping'] = data['ramping'].abs()
         data['ramping'] = data['ramping'].rolling(window=data.shape[0],min_periods=1).sum()
