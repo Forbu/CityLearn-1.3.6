@@ -609,7 +609,7 @@ class CityLearnEnv(Environment, Env):
             CostFunction.load_factor(self.net_electricity_consumption_without_storage)[-1]
         grid_cost = np.mean([ramping_cost, load_factor_cost])
 
-        return price_cost, emission_cost, grid_cost
+        return price_cost, emission_cost, grid_cost, ramping_cost, load_factor_cost
 
     def next_time_step(self):
         r"""Advance all buildings to next `time_step`."""
